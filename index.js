@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-
+const ShapeObjs = require('./lib/shapes');
 // Questions to use to select SVG choices.
 const questions = [
   "Please enter a name for your logo (Cannot exceed three characters).",
