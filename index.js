@@ -46,3 +46,5 @@ const init = () => {
 };
 
 init();
+
+// Commit before refactoring code. Will make multiple class files for each shape.
