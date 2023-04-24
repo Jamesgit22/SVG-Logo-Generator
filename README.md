@@ -24,7 +24,15 @@
   
   A good use case for this tool would be if you wanted to quickly make a place holder logo for a project you are working on to speed up your development process.
   
+  ## Demo Video:
+  
+  - [Demo of Application](https://watch.screencastify.com/v/vX829oZ6d8xAt2v40MRD)
+  
   ## ScreenShots:
+
+
+  ---
+
   ![Screenshot of CLI](assets/images/svg_gen_cli.png)
 
   ---
