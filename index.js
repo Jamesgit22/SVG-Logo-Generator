@@ -6,7 +6,7 @@ const Circle = require("./lib/circle.js");
 const MakeSVG = require("./lib/create_svg");
 const fs = require("fs");
 
-// Questions to use to select SVG choices.
+// Questions to select SVG choices.
 const questions = [
   "Please enter a name for your logo (Cannot exceed three characters).",
   "Please eneter a color for the text.",
@@ -14,7 +14,7 @@ const questions = [
   "Please choose a color for the background.",
 ];
 
-// Function to run the program
+// CLI to prompt the user for SVG style answers.
 const init = () => {
   inquirer
     .prompt([
@@ -40,9 +40,10 @@ const init = () => {
         name: "logoShapeColor",
       },
     ])
+    // Check what type of shape the user choose and uses a shape constructor to get the SVG code.
     .then((answers) => {
       let obj;
-      switch (answers.logoShape) {
+      switch (answers.logoShape) { 
         case "Square":
           obj = new Square(
             answers.logoText,
@@ -50,7 +51,7 @@ const init = () => {
             answers.logoShape,
             answers.logoShapeColor
           );
-          obj.shape = obj.render();
+          obj.shape = obj.render(); 
           break;
         case "Circle":
           obj = new Circle(
@@ -74,12 +75,14 @@ const init = () => {
       console.log(obj);
       return obj;
     })
-    .then((obj) => {
-      const newSVG = new MakeSVG(obj.text, obj.textColor, obj.shape);
+    // Pass the generated SVG code to a file to create the logo.
+    .then((obj) => {  
+      const newSVG = new MakeSVG(obj.text, obj.textColor, obj.shape); 
       const logo = newSVG.render();
       return logo;
     })
-    .then((obj) => {
+    // Add the new SVG logo to the html page for viewing
+    .then((obj) => { 
       fs.writeFile("./index.html", obj, (err) =>
         err ? console.error("file not create") : console.log("File Created!")
       );
